@@ -1,0 +1,166 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<sap.ui.core:View controllerName="hcm.mytimesheet.view.S31" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+  xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.me="sap.me" xmlns:sap.ui.core="sap.ui.core" xmlns:sap.ui.unified="sap.ui.unified">
+  <Page id="page" title="{i18n>MANUAL_INPUT_EDIT}" showNavButton="true" enableScrolling="true" navButtonPress="onNavButton">
+    <content>
+      <sap.me:Calendar id="weeklyCalendar" singleRow="true" weeksPerRow="2" design="Approval"
+        currentDate="{ path: '/start', formatter:'.parseDateYYYYMMdd' }" tapOnDate="onTapOnDate" hideMonthTitles="true" enableMultiselection="false"
+        hideNavControls="true" visible="true"></sap.me:Calendar>
+      <sap.ui.layout:Grid defaultSpan="L8 M8 S12" defaultIndent="L2 M2 S0" width="auto">
+        <sap.ui.layout:content>
+          <Panel id="createPanel" headerText="{i18n>ENTRY_DETAILS}">
+            <content>
+              <sap.ui.layout.form:Form id="createFormTitle" maxContainerCols="2">
+                <sap.ui.layout.form:layout>
+                  <sap.ui.layout.form:ResponsiveGridLayout labelSpanL="4" emptySpanL="3" labelSpanM="4" emptySpanM="2" columnsL="2" columnsM="2"/>
+                </sap.ui.layout.form:layout>
+                <sap.ui.layout.form:formContainers>
+                  <sap.ui.layout.form:FormContainer id="firstContainer" visible="true">
+                    <sap.ui.layout.form:formElements>
+                      <sap.ui.layout.form:FormElement>
+                        <sap.ui.layout.form:label>
+                          <Label id="timeAssignmentLbl" class="sapUiSmallMarginTop" text="{i18n>SELECT_FAVORITE}"></Label>
+                        </sap.ui.layout.form:label>
+                        <sap.ui.layout.form:fields>
+                          <Input id="timeAssignment" showValueHelp="true" valueHelpRequest="onFavoriteInputHelp" valueHelpOnly="true"
+                            suggestionItemSelected='onFavoriteItemSelection'></Input>
+                        </sap.ui.layout.form:fields>
+                      </sap.ui.layout.form:FormElement>
+                      <sap.ui.layout.form:FormElement visible="{/decimalTimeEntryVisible}">
+                        <sap.ui.layout.form:label>
+                          <Label id="decimalInputLbl" class="sapUiSmallMarginTop" text="{i18n>DURATION}"></Label>
+                        </sap.ui.layout.form:label>
+                        <sap.ui.layout.form:fields>
+                          <Input id="decimalTimeEntryValue" value="{entry>/time}" type="Text" change="onDecimalTimeValueChange"></Input>
+                        </sap.ui.layout.form:fields>
+                      </sap.ui.layout.form:FormElement>
+                      <sap.ui.layout.form:FormElement visible="{/clockEntry}">
+                        <sap.ui.layout.form:label>
+                          <Label id="startTimeLbl" class="sapUiSmallMarginTop" text="{i18n>TIME}"></Label>
+                        </sap.ui.layout.form:label>
+                        <sap.ui.layout.form:fields>
+                          <DateTimeInput id="startTime" type="Time" placeholder="{i18n>FROM}" valueFormat="HHmmss" value="{entry>/startTime}" change="validate"></DateTimeInput>
+                          <DateTimeInput id="endTime" type="Time" placeholder="{i18n>TO}" valueFormat="HHmmss" value="{entry>/endTime}" change="validate"></DateTimeInput>
+                        </sap.ui.layout.form:fields>
+                      </sap.ui.layout.form:FormElement>
+                      <sap.ui.layout.form:FormElement id="ClkTimeDurationEle" visible="false">
+                        <sap.ui.layout.form:label>
+                          <Label id="ClkTimeDecimalInputLbl" class="sapUiSmallMarginTop" text="{i18n>DURATION}"></Label>
+                        </sap.ui.layout.form:label>
+                        <sap.ui.layout.form:fields>
+                          <Input id="ClkTimeDecimalTimeEntryValue" type="Text" change="onDecimalTimeValueChange"></Input>
+                        </sap.ui.layout.form:fields>
+                      </sap.ui.layout.form:FormElement>
+                      <!-- extension point for adding Form Elements in the inputs section in the first form -->
+                      <sap.ui.core:ExtensionPoint name="extS31FormElementForInputs"></sap.ui.core:ExtensionPoint>
+                      <sap.ui.layout.form:FormElement>
+                        <sap.ui.layout.form:label>
+                          <Label text="{i18n>NOTE}" class="sapUiSmallMarginTop"/>
+                        </sap.ui.layout.form:label>
+                        <sap.ui.layout.form:fields>
+                          <TextArea id='S31TextArea' class="s31textarea-com" value="{entry>/notes}" editable="false"></TextArea>
+                        </sap.ui.layout.form:fields>
+                      </sap.ui.layout.form:FormElement>
+                      <sap.ui.layout.form:FormElement>
+                        <sap.ui.layout.form:label>
+                          <Label text="Комментарий" class="sapUiSmallMarginTop"/>
+                        </sap.ui.layout.form:label>
+                        <sap.ui.layout.form:fields>
+                          <TextArea id='S31TextAreaCom' class="s31textarea-com" liveChange="OnTextComm"></TextArea>
+                        </sap.ui.layout.form:fields>
+                      </sap.ui.layout.form:FormElement>
+                    </sap.ui.layout.form:formElements>
+                  </sap.ui.layout.form:FormContainer>
+                </sap.ui.layout.form:formContainers>
+              </sap.ui.layout.form:Form>
+              <Toolbar>
+                <ToolbarSpacer/>
+                <Button id="Comm" text="Отправить комментарий" press="onComment" visible="false"></Button>
+                <ToolbarSpacer/>
+              </Toolbar>
+            </content>
+          </Panel>
+          <Panel id="accountingInfoPanel" expandable="true" expanded="false" headerText="{i18n>COST_ASSIGNMENT}">
+            <content>
+              <sap.ui.layout.form:Form id="accountingInfos" maxContainerCols="1">
+                <sap.ui.layout.form:layout>
+                  <sap.ui.layout.form:ResponsiveGridLayout labelSpanL="4" emptySpanL="3" labelSpanM="4" emptySpanM="2" columnsL="1" columnsM="1"/>
+                </sap.ui.layout.form:layout>
+                <sap.ui.layout.form:formContainers>
+                  <sap.ui.layout.form:FormContainer id="manualAccountingInfos" formElements="{accountingInfoModel>/types}">
+                    <sap.ui.layout.form:layoutData>
+                      <sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+                    </sap.ui.layout.form:layoutData>
+                    <sap.ui.core:ExtensionPoint name="extS31FormElementAccountingInfos"></sap.ui.core:ExtensionPoint>
+                    <sap.ui.layout.form:FormElement>
+                      <sap.ui.layout.form:layoutData>
+                        <sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+                      </sap.ui.layout.form:layoutData>
+                      <sap.ui.layout.form:label>
+                        <Label class="sapUiSmallMarginTop" visible="{accountingInfoModel>typeVisible}" text="{accountingInfoModel>name}">
+                          <layoutData>
+                            <sap.ui.layout:ResponsiveFlowLayoutData weight="1"></sap.ui.layout:ResponsiveFlowLayoutData>
+                          </layoutData>
+                        </Label>
+                      </sap.ui.layout.form:label>
+                      <sap.ui.layout.form:fields>
+                        <Input showValueHelp="{accountingInfoModel>valueHelp}" name="{accountingInfoModel>fieldName}"
+                          valueStateText="{accountingInfoModel>valueStateText}" valueHelpRequest="onInputHelp" liveChange='manualHelpChange' valueHelpOnly="true"
+                          suggestionItemSelected='onManualItemSelection' value="{accountingInfoModel>value}" enabled="true" visible="{accountingInfoModel>typeVisible}"></Input>
+                      </sap.ui.layout.form:fields>
+                    </sap.ui.layout.form:FormElement>
+                  </sap.ui.layout.form:FormContainer>
+
+                  <sap.ui.layout.form:FormContainer id="manualAccountingInfos_1">
+                    <sap.ui.layout.form:layoutData>
+                      <sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+                    </sap.ui.layout.form:layoutData>
+                    <sap.ui.layout.form:FormElement>
+                      <sap.ui.layout.form:layoutData>
+                        <sap.ui.layout:ResponsiveFlowLayoutData weight="8" linebreak="true"></sap.ui.layout:ResponsiveFlowLayoutData>
+                      </sap.ui.layout.form:layoutData>
+                      <sap.ui.layout.form:label>
+                        <Label class="sapUiSmallMarginTop" labelFor="keyInput" text="Ключ записи">
+                          <layoutData>
+                            <sap.ui.layout:ResponsiveFlowLayoutData weight="1"></sap.ui.layout:ResponsiveFlowLayoutData>
+                          </layoutData>
+                        </Label>
+                      </sap.ui.layout.form:label>
+                      <sap.ui.layout.form:fields>
+                        <Input id="keyInput" showValueHelp="true" valueHelpRequest="f4key" type="Text" liveChange="onLive" valueHelpOnly="true"></Input>
+                      </sap.ui.layout.form:fields>
+                    </sap.ui.layout.form:FormElement>
+                  </sap.ui.layout.form:FormContainer>
+
+                </sap.ui.layout.form:formContainers>
+              </sap.ui.layout.form:Form>
+            </content>
+            <!--<content>-->
+            <!--  <sap.ui.layout.form:SimpleForm layout="ResponsiveGridLayout">-->
+            <!--      <Label class="sapUiSmallMarginTop" labelFor="keyInput" text="Ключ записи"></Label>-->
+            <!--      <Input id="keyInput" showValueHelp="true" valueHelpRequest="f4key" type="Text" liveChange="onLive" valueHelpOnly="true"/>-->
+            <!--  </sap.ui.layout.form:SimpleForm>-->
+            <!--</content>-->
+          </Panel>
+          <Panel id="Docs" expandable="true" expanded="false" headerText="Документы">
+            <content>
+              <sap.ui.layout:Grid id="DOCS_GRID" defaultSpan="L3 M3 S6" width="auto">
+                <sap.ui.unified:FileUploader id="fileUploader" uploadUrl="/sap/opu/odata/sap/zcats_docs_srv/DocsSet" sendXHR="true" useMultipart="false"
+                  icon="sap-icon://inspection" iconOnly="true" width="100%" change="onChangeDoc" uploadComplete="onUploadComplete"></sap.ui.unified:FileUploader>
+                <Button text="Список документов" press="onList" width="100%"></Button>
+                <Button text="UploadCollection" press="onUploadCollection" width="100%" visible="false"></Button>
+              </sap.ui.layout:Grid>
+              <sap.ui.layout:Grid id="DOCS_GRID_1" defaultSpan="L3 M3 S6" width="auto">
+                <Button id="AddDoc" text="Прикрепить" visible="false" press="onAddDoc"></Button>
+              </sap.ui.layout:Grid>
+            </content>
+          </Panel>
+        </sap.ui.layout:content>
+      </sap.ui.layout:Grid>
+    </content>
+  </Page>
+</sap.ui.core:View>

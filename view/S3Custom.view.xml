@@ -1,0 +1,61 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<sap.ui.core:View controllerName="hcm.mytimesheet.view.S3" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form"
+	xmlns:sap.ui.layout="sap.ui.layout" xmlns:sap.me="sap.me" xmlns:sap.ui.core="sap.ui.core">
+	<Page id="WEEKLY_PAGE" title="{i18n>WEEKENTRY_TITLE}" enableScrolling="false">
+		<content>
+			<sap.ui.layout:FixFlex>
+				<sap.ui.layout:fixContent>
+					<Label labelFor="DP2" width="40%" design="Bold"/>
+					<DatePicker id="DP2" valueFormat="yyyy-MM-dd" displayFormat="long" change="handleChange" width="20%"/>
+					<sap.me:Calendar id="WEEKLY_CALENDAR" swipeToNavigate="true" design="Approval" singleRow="true" weeksPerRow="2" hideNavControls="false"
+						currentDate="{ path: '/start', formatter:'.parseDateYYYYMMdd' }" tapOnDate="onSelect" hideMonthTitles="true" enableMultiselection='false'
+						changeCurrentDate="onCalendarWeekChange"></sap.me:Calendar>
+				</sap.ui.layout:fixContent>
+				<sap.ui.layout:flexContent>
+					<ScrollContainer id="scroller" vertical="true" height="100%" focusable="true">
+						<content>
+							<sap.ui.layout:Grid id="MTS3_SUMMARY_GRID" defaultSpan="L6 M6 S12">
+								<sap.ui.layout:content>
+									<sap.ui.layout:VerticalLayout id="MTS3_FIRST_INFO" width="100%">
+										<ObjectListItem id="MTS3_CURRENT_WEEK_INFO_1">
+											<firstStatus>
+												<ObjectStatus id="MTS3_TXT_ASSIGNMENTS_1" state="Error"></ObjectStatus>
+											</firstStatus>
+											<secondStatus>
+												<ObjectStatus id="MTS3_TXT_APPROVED_HOURS_1" state="Success"></ObjectStatus>
+											</secondStatus>
+											<attributes>
+												<ObjectAttribute/>
+												<ObjectAttribute id="MTS3_TARGET_TIME_1"/>
+											</attributes>
+										</ObjectListItem>
+									</sap.ui.layout:VerticalLayout>
+									<sap.ui.layout:VerticalLayout id="MTS3_SECOND_INFO" width="100%">
+										<ObjectListItem id="MTS3_CURRENT_WEEK_INFO_2">
+											<firstStatus>
+												<ObjectStatus id="MTS3_TXT_ASSIGNMENTS_2" state="Error"></ObjectStatus>
+											</firstStatus>
+											<secondStatus>
+												<ObjectStatus id="MTS3_TXT_APPROVED_HOURS_2" state="Success"></ObjectStatus>
+											</secondStatus>
+											<attributes>
+												<ObjectAttribute/>
+												<ObjectAttribute id="MTS3_TARGET_TIME_2"/>
+											</attributes>
+										</ObjectListItem>
+									</sap.ui.layout:VerticalLayout>
+								</sap.ui.layout:content>
+							</sap.ui.layout:Grid>
+							<Table id="ENTRY_LIST_CONTENTS" mode="MultiSelect" select="onItemSelect"></Table>
+							<sap.me:CalendarLegend id="LEGEND" design="Approval"></sap.me:CalendarLegend>
+						</content>
+					</ScrollContainer>
+				</sap.ui.layout:flexContent>
+			</sap.ui.layout:FixFlex>
+		</content>
+	</Page>
+</sap.ui.core:View>

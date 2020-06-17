@@ -1,0 +1,8 @@
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<core:View xmlns:core="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" xmlns="sap.m" xmlns:sap.ui.commons="sap.ui.commons" controllerName="hcm.mytimesheet.Main" displayBlock="true" height="100%">
+	<App id="fioriContent" showHeader="false"></App>
+</core:View>

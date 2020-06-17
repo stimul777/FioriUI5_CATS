@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+    Copyright (C) 2009-2014 SAP SE or an SAP affiliate company. All rights reserved
+
+-->
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:gp="http://www.sap.com/Protocols/SAPData/GenericPlayer" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+	xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="LEAVEREQUEST" xml:lang="en" sap:schema-version="0001" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="AbsenceType" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeID"/>
+					<PropertyRef Name="StartDate"/>
+					<PropertyRef Name="AbsenceTypeCode"/>
+				</Key>
+				<Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="AbsenceTypeCode" Type="Edm.String" Nullable="false" MaxLength="4" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Subtype" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="AbsenceTypeName" Type="Edm.String" MaxLength="40" gp:display-order="0010" gp:visible-in-detail="false"
+					gp:visible-in-list="true" sap:label="Leave Type" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ApproverReadOnlyInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ApproverVisibleInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AllowedDurationPartialDayInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AllowedDurationSingleDayInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AllowedDurationMultipleDayInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="NoteVisibleInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ActionCreateInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FieldSelectionID" Type="Edm.String" MaxLength="7" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Field selection" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Icon1Size" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false"/>
+				<Property Name="Icon1Style" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false"/>
+				<Property Name="Icon1Name" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Icon1Binary" Type="Edm.Binary" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Icon2Size" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false"/>
+				<Property Name="Icon2Style" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false"/>
+				<Property Name="Icon2Name" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Icon2Binary" Type="Edm.Binary" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Icon3Size" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false"/>
+				<Property Name="Icon3Style" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false"/>
+				<Property Name="Icon3Name" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Icon3Binary" Type="Edm.Binary" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="SequenceID" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Int2" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<NavigationProperty Name="absenceTypeAdditionalField" Relationship="LEAVEREQUEST.AbsenceTypeAdditionalField"
+					FromRole="FromRole_AbsenceTypeAdditionalField" ToRole="ToRole_AbsenceTypeAdditionalField"/>
+				<NavigationProperty Name="absenceTypeTimeAccount" Relationship="LEAVEREQUEST.AbsenceTypeTimeAccount"
+					FromRole="FromRole_AbsenceTypeTimeAccount" ToRole="ToRole_AbsenceTypeTimeAccount"/>
+			</EntityType>
+			<EntityType Name="Approver" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="ApproverEmployeeID"/>
+				</Key>
+				<Property Name="ApproverEmployeeID" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Appr. Personnel No." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ApproverEmployeeName" Type="Edm.String" MaxLength="40" gp:display-order="0010" gp:visible-in-detail="false"
+					gp:visible-in-list="true" sap:label="Approver Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="Configuration" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeID"/>
+					<PropertyRef Name="StartDate"/>
+				</Key>
+				<Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="EmployeeName" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Employee name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultStartDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultStartTime" Type="Edm.Time" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start time" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultEndDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultEndTime" Type="Edm.Time" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="End time"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultAbsenceTypeCode" Type="Edm.String" MaxLength="4" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Subtype" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultFilterStartDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultApproverEmployeeID" Type="Edm.String" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Appr. Personnel No." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultApproverEmployeeName" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Approver Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="RecordInClockHoursAllowedInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="RecordInClockTimesAllowedInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="GetApproverCollectionInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="GetTeamCalendarCollectionInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<NavigationProperty Name="configFieldselection" Relationship="LEAVEREQUEST.ConfigFieldselection" FromRole="FromRole_ConfigFieldselection"
+					ToRole="ToRole_ConfigFieldselection"/>
+			</EntityType>
+			<EntityType Name="LeaveRequest" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeID"/>
+					<PropertyRef Name="RequestID"/>
+					<PropertyRef Name="ChangeStateID"/>
+					<PropertyRef Name="LeaveKey"/>
+				</Key>
+				<Property Name="additionalFields" Type="LEAVEREQUEST.LeaveRequestAddFields" Nullable="false"/>
+				<Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="RequestID" Type="Edm.String" Nullable="false" MaxLength="32" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:filterable="false"/>
+				<Property Name="ChangeStateID" Type="Edm.String" Nullable="false" MaxLength="10" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:filterable="false"/>
+				<Property Name="LeaveKey" Type="Edm.String" Nullable="false" MaxLength="38" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:filterable="false"/>
+				<Property Name="ActionCode" Type="Edm.Int16" Nullable="false" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Int2"
+					sap:filterable="false"/>
+				<Property Name="ProcessCheckOnlyInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:filterable="false"/>
+				<Property Name="StatusCode" Type="Edm.String" MaxLength="12" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Status"
+					sap:creatable="false" sap:updatable="false"/>
+				<Property Name="StatusName" Type="Edm.String" MaxLength="20" gp:display-order="0060" gp:visible-in-detail="true" gp:visible-in-list="true"
+					sap:label="Status" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AbsenceTypeCode" Type="Edm.String" MaxLength="4" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Subtype"
+					sap:filterable="false"/>
+				<Property Name="AbsenceTypeName" Type="Edm.String" MaxLength="40" gp:display-order="0050" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Leave Type" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="StartDate" Type="Edm.DateTime" Precision="0" gp:display-order="0010" gp:visible-in-detail="true" gp:visible-in-list="true"
+					sap:label="Start date"/>
+				<Property Name="StartTime" Type="Edm.Time" Precision="0" gp:display-order="0015" gp:visible-in-detail="true" gp:visible-in-list="true"
+					sap:label="Start time" sap:filterable="false"/>
+				<Property Name="EndDate" Type="Edm.DateTime" Precision="0" gp:display-order="0020" gp:visible-in-detail="true" gp:visible-in-list="true"
+					sap:label="End date" sap:filterable="false"/>
+				<Property Name="EndTime" Type="Edm.Time" Precision="0" gp:display-order="0025" gp:visible-in-detail="true" gp:visible-in-list="true"
+					sap:label="End time" sap:filterable="false"/>
+				<Property Name="WorkingHoursDuration" Type="Edm.Decimal" Precision="7" Scale="2" gp:display-order="0040" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Absence hrs" sap:filterable="false"/>
+				<Property Name="WorkingDaysDuration" Type="Edm.Decimal" Precision="7" Scale="2" gp:display-order="0030" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Absence days" sap:filterable="false"/>
+				<Property Name="ApproverEmployeeID" Type="Edm.String" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Appr. Personnel No." sap:filterable="false"/>
+				<Property Name="ApproverEmployeeName" Type="Edm.String" MaxLength="40" gp:display-order="0070" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Approver Name" sap:filterable="false"/>
+				<Property Name="Notes" Type="Edm.String" gp:display-order="0080" gp:visible-in-detail="true" gp:visible-in-list="false" sap:label="Note"
+					sap:filterable="false"/>
+				<Property Name="ActionDeleteInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ActionModifyInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Last change date" sap:creatable="false" sap:filterable="false"/>
+				<Property Name="LastChangeTime" Type="Edm.Time" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Last change time" sap:creatable="false" sap:filterable="false"/>
+				<Property Name="LastChangeEmployeeName" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Changed by" sap:creatable="false" sap:filterable="false"/>
+				<Property Name="SequenceID" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="LeaveRequestType" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Int2"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FirstSubmissionDate" Type="Edm.DateTime" Precision="0" gp:display-order="0090" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Submission Date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FirstSubmissionTime" Type="Edm.Time" Precision="0" gp:display-order="0100" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Submission Time" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="TeamCalendar" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeNumber"/>
+				</Key>
+				<Property Name="EmployeeNumber" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="StartDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Start date"
+					sap:creatable="false" sap:updatable="false"/>
+				<Property Name="EndDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="End date"
+					sap:creatable="false" sap:updatable="false"/>
+				<Property Name="EmployeeName" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Employee name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FirstName" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="First name"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="LastName" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Last name"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="AttendanceStatus" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Attendance Stat"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="IsManager" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="IsOwnTeam" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="TimeAccount" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeID"/>
+					<PropertyRef Name="TimeAccountTypeCode"/>
+				</Key>
+				<Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FilterStartDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="FilterEndDate" Type="Edm.DateTime" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="End date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="FilterAbsenceTypeCode" Type="Edm.String" MaxLength="4" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Subtype" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="ProcessingStartDate" Type="Edm.DateTime" Precision="0" gp:display-order="0035" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ProcessingEndDate" Type="Edm.DateTime" Precision="0" gp:display-order="0036" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="TimeAccountTypeCode" Type="Edm.String" Nullable="false" MaxLength="4" gp:visible-in-detail="false"
+					gp:visible-in-list="false" sap:label="Time type" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="TimeAccountTypeName" Type="Edm.String" MaxLength="25" gp:display-order="0010" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Quota text" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DeductionStartDate" Type="Edm.DateTime" Precision="0" gp:display-order="0020" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Deduction from" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DeductionEndDate" Type="Edm.DateTime" Precision="0" gp:display-order="0030" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Deduction to" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="TimeUnitCode" Type="Edm.String" MaxLength="3" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Time unit/meas." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="TimeUnitName" Type="Edm.String" MaxLength="20" gp:visible-in-detail="false" gp:visible-in-list="true"
+					sap:label="Time unit/meas." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="BalanceEntitlementQuantity" Type="Edm.Decimal" Precision="11" Scale="5" gp:display-order="0050" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Entitlement" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="BalanceUsedQuantity" Type="Edm.Decimal" Precision="11" Scale="5" gp:display-order="0060" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Current use" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="BalanceApprovedQuantity" Type="Edm.Decimal" Precision="11" Scale="5" gp:display-order="0080" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Approved" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="BalanceRequestedQuantity" Type="Edm.Decimal" Precision="11" Scale="5" gp:display-order="0070" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Requested" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="BalancePlannedQuantity" Type="Edm.Decimal" Precision="11" Scale="5" gp:display-order="0080" gp:visible-in-detail="true"
+					gp:visible-in-list="false" sap:label="Planned" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="BalanceAvailableQuantity" Type="Edm.Decimal" Precision="11" Scale="5" gp:display-order="0090" gp:visible-in-detail="true"
+					gp:visible-in-list="true" sap:label="Available" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="SequenceID" Type="Edm.Int16" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="RemainingVacationDays" Type="Edm.Decimal" Precision="5" Scale="2" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Vacation balance" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="FieldSelection" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeID"/>
+					<PropertyRef Name="ReferenceColl"/>
+					<PropertyRef Name="FieldName"/>
+				</Key>
+				<Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false"/>
+				<Property Name="ProcessCode" Type="Edm.String" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ReferenceColl" Type="Edm.String" Nullable="false" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Reference Collection" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Field Name" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="DefaultFieldValue" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="Default Value"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="RequiredInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ReadOnlyInd" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+			</EntityType>
+			<EntityType Name="AdditionalField" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="FieldSelectionID"/>
+					<PropertyRef Name="FieldName"/>
+				</Key>
+				<Property Name="FieldSelectionID" Type="Edm.String" Nullable="false" MaxLength="7" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Field selection" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Field Name" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="DefaultValueID" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="DefaultValueDesc" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="HasPickList" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE"
+					sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<Property Name="Required" Type="Edm.Boolean" gp:visible-in-detail="false" gp:visible-in-list="false" sap:label="TRUE" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<NavigationProperty Name="additionalFieldPickList" Relationship="LEAVEREQUEST.AdditionalFieldPickList"
+					FromRole="FromRole_AdditionalFieldPickList" ToRole="ToRole_AdditionalFieldPickList"/>
+			</EntityType>
+			<EntityType Name="PickList" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="FieldName"/>
+					<PropertyRef Name="ValueID"/>
+				</Key>
+				<Property Name="FieldName" Type="Edm.String" Nullable="false" MaxLength="40" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Field Name" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="ValueID" Type="Edm.String" Nullable="false" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="ValueDesc" Type="Edm.String" gp:visible-in-detail="false" gp:visible-in-list="false" sap:creatable="false"
+					sap:updatable="false" sap:filterable="false"/>
+				<Property Name="FieldSelectionID" Type="Edm.String" MaxLength="7" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Field selection" sap:creatable="false" sap:updatable="false"/>
+			</EntityType>
+			<EntityType Name="WorkSchedule" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="EmployeeNumber"/>
+				</Key>
+				<Property Name="EmployeeNumber" Type="Edm.String" Nullable="false" MaxLength="8" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Personnel no." sap:creatable="false" sap:updatable="false"/>
+				<Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Start date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="0" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="End date" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="StatusValues" Type="Edm.String" Nullable="false" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:label="Attendance Stat" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+				<NavigationProperty Name="workScheduleWorkScheduleLegend" Relationship="LEAVEREQUEST.WorkScheduleWorkScheduleLegend"
+					FromRole="FromRole_WorkScheduleWorkScheduleLegend" ToRole="ToRole_WorkScheduleWorkScheduleLegend"/>
+			</EntityType>
+			<EntityType Name="WorkScheduleLegend" sap:content-version="2">
+				<Key>
+					<PropertyRef Name="WorkScheduleLegendCode"/>
+				</Key>
+				<Property Name="WorkScheduleLegendCode" Type="Edm.String" Nullable="false" MaxLength="1" gp:visible-in-detail="false"
+					gp:visible-in-list="false" sap:creatable="false" sap:updatable="false"/>
+				<Property Name="WorkScheduleLegendText" Type="Edm.String" Nullable="false" gp:visible-in-detail="false" gp:visible-in-list="false"
+					sap:creatable="false" sap:updatable="false"/>
+			</EntityType>
+			<ComplexType Name="LeaveRequestAddFields">
+				<Property Name="LGART" Type="Edm.String" MaxLength="4" sap:label="Wage Type"/>
+				<Property Name="VERSL" Type="Edm.String" MaxLength="1" sap:label="OT comp. type"/>
+				<Property Name="EXBEL" Type="Edm.String" MaxLength="8" sap:label="Ext. doc. no."/>
+				<Property Name="WTART" Type="Edm.String" MaxLength="4" sap:label="Tax Area"/>
+				<Property Name="FAPRS" Type="Edm.String" MaxLength="2" sap:label="Evaluation type"/>
+				<Property Name="KEPAU" Type="Edm.String" MaxLength="1" sap:label="No break"/>
+				<Property Name="EXPAU" Type="Edm.String" MaxLength="1" sap:label="Explicit break"/>
+				<Property Name="PBEG1" Type="Edm.Time" Precision="0" sap:label="Start of break"/>
+				<Property Name="PEND1" Type="Edm.Time" Precision="0" sap:label="End of break"/>
+				<Property Name="PBEZ1" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Paid break"/>
+				<Property Name="PUNB1" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Unpaid break"/>
+				<Property Name="PBEG2" Type="Edm.Time" Precision="0" sap:label="Start of break"/>
+				<Property Name="PEND2" Type="Edm.Time" Precision="0" sap:label="End of break"/>
+				<Property Name="PBEZ2" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Paid break"/>
+				<Property Name="PUNB2" Type="Edm.Decimal" Precision="4" Scale="2" sap:label="Unpaid break"/>
+				<Property Name="ANRTG" Type="Edm.Decimal" Precision="6" Scale="2" sap:label="Days credited"/>
+				<Property Name="LFZED" Type="Edm.DateTime" Precision="0" sap:label="End of cont.pay"/>
+				<Property Name="KRGED" Type="Edm.DateTime" Precision="0" sap:label="End sick pay"/>
+				<Property Name="KBBEG" Type="Edm.DateTime" Precision="0" sap:label="Cert.start"/>
+				<Property Name="RMDDA" Type="Edm.DateTime" Precision="0" sap:label="Confirmation"/>
+				<Property Name="KENN1" Type="Edm.Decimal" Precision="2" Scale="0" sap:label="Subs.sick.ind."/>
+				<Property Name="KENN2" Type="Edm.Decimal" Precision="2" Scale="0" sap:label="Ind.repeated illness"/>
+				<Property Name="OBJECT_TYPE" Type="Edm.String" MaxLength="2" sap:label="Object Type"/>
+				<Property Name="OBJ_ID" Type="Edm.String" MaxLength="8" sap:label="Object ID"/>
+				<Property Name="COMP_CODE" Type="Edm.String" MaxLength="4" sap:label="Company code"/>
+				<Property Name="COSTCENTER" Type="Edm.String" MaxLength="10" sap:label="Cost Center"/>
+				<Property Name="ORDER_ID" Type="Edm.String" MaxLength="12" sap:label="Order"/>
+				<Property Name="WBS_ELEMENT" Type="Edm.String" MaxLength="24" sap:label="WBS Element"/>
+				<Property Name="VTKEN" Type="Edm.String" MaxLength="1" sap:label="Previous day"/>
+				<Property Name="ABWTG" Type="Edm.Decimal" Precision="6" Scale="2" sap:label="Absence days"/>
+				<Property Name="KALTG" Type="Edm.Decimal" Precision="6" Scale="2" sap:label="Calendar days"/>
+				<Property Name="HRSIF" Type="Edm.String" MaxLength="1" sap:label="Set hours"/>
+				<Property Name="ALLDF" Type="Edm.String" MaxLength="1" sap:label="Full-day"/>
+				<Property Name="ABRTG" Type="Edm.Decimal" Precision="6" Scale="2" sap:label="Payr.days"/>
+				<Property Name="ABRST" Type="Edm.Decimal" Precision="7" Scale="2" sap:label="Payroll hours"/>
+				<Property Name="UMSKD" Type="Edm.String" MaxLength="6" sap:label="Desc. illness"/>
+				<Property Name="UMSCH" Type="Edm.String" MaxLength="20" sap:label="Illness"/>
+				<Property Name="CUSTOMER01" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER02" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER03" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER04" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER05" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER06" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER07" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER08" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER09" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+				<Property Name="CUSTOMER10" Type="Edm.String" MaxLength="20" sap:label="Customer Field"/>
+			</ComplexType>
+			<Association Name="WorkScheduleWorkScheduleLegend" sap:content-version="2">
+				<End Type="LEAVEREQUEST.WorkSchedule" Multiplicity="1" Role="FromRole_WorkScheduleWorkScheduleLegend"/>
+				<End Type="LEAVEREQUEST.WorkScheduleLegend" Multiplicity="*" Role="ToRole_WorkScheduleWorkScheduleLegend"/>
+			</Association>
+			<Association Name="ConfigFieldselection" sap:content-version="2">
+				<End Type="LEAVEREQUEST.Configuration" Multiplicity="1" Role="FromRole_ConfigFieldselection"/>
+				<End Type="LEAVEREQUEST.FieldSelection" Multiplicity="*" Role="ToRole_ConfigFieldselection"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_ConfigFieldselection">
+						<PropertyRef Name="EmployeeID"/>
+					</Principal>
+					<Dependent Role="ToRole_ConfigFieldselection">
+						<PropertyRef Name="EmployeeID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AdditionalFieldPickList" sap:content-version="2">
+				<End Type="LEAVEREQUEST.AdditionalField" Multiplicity="1" Role="FromRole_AdditionalFieldPickList"/>
+				<End Type="LEAVEREQUEST.PickList" Multiplicity="*" Role="ToRole_AdditionalFieldPickList"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_AdditionalFieldPickList">
+						<PropertyRef Name="FieldName"/>
+					</Principal>
+					<Dependent Role="ToRole_AdditionalFieldPickList">
+						<PropertyRef Name="FieldName"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="AbsenceTypeAdditionalField" sap:content-version="2">
+				<End Type="LEAVEREQUEST.AbsenceType" Multiplicity="1" Role="FromRole_AbsenceTypeAdditionalField"/>
+				<End Type="LEAVEREQUEST.AdditionalField" Multiplicity="*" Role="ToRole_AbsenceTypeAdditionalField"/>
+			</Association>
+			<Association Name="AbsenceTypeTimeAccount" sap:content-version="2">
+				<End Type="LEAVEREQUEST.AbsenceType" Multiplicity="1" Role="FromRole_AbsenceTypeTimeAccount"/>
+				<End Type="LEAVEREQUEST.TimeAccount" Multiplicity="*" Role="ToRole_AbsenceTypeTimeAccount"/>
+			</Association>
+			<EntityContainer Name="LEAVEREQUEST_Entities" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="AbsenceTypeCollection" EntityType="LEAVEREQUEST.AbsenceType" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="ApproverCollection" EntityType="LEAVEREQUEST.Approver" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:searchable="true" sap:content-version="2"/>
+				<EntitySet Name="ConfigurationCollection" EntityType="LEAVEREQUEST.Configuration" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="LeaveRequestCollection" EntityType="LEAVEREQUEST.LeaveRequest" sap:content-version="2"/>
+				<EntitySet Name="TeamCalendarCollection" EntityType="LEAVEREQUEST.TeamCalendar" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="TimeAccountCollection" EntityType="LEAVEREQUEST.TimeAccount" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="FieldSelectionCollection" EntityType="LEAVEREQUEST.FieldSelection" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="AdditionalFieldCollection" EntityType="LEAVEREQUEST.AdditionalField" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="PickListCollection" EntityType="LEAVEREQUEST.PickList" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+					sap:content-version="2"/>
+				<EntitySet Name="WorkScheduleCollection" EntityType="LEAVEREQUEST.WorkSchedule" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<EntitySet Name="WorkScheduleLegendCollection" EntityType="LEAVEREQUEST.WorkScheduleLegend" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="2"/>
+				<AssociationSet Name="ConfigFieldselection_AssocSet" Association="LEAVEREQUEST.ConfigFieldselection" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="2">
+					<End EntitySet="ConfigurationCollection" Role="FromRole_ConfigFieldselection"/>
+					<End EntitySet="FieldSelectionCollection" Role="ToRole_ConfigFieldselection"/>
+				</AssociationSet>
+				<AssociationSet Name="AbsenceTypeTimeAccount_AssocSet" Association="LEAVEREQUEST.AbsenceTypeTimeAccount" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="2">
+					<End EntitySet="AbsenceTypeCollection" Role="FromRole_AbsenceTypeTimeAccount"/>
+					<End EntitySet="TimeAccountCollection" Role="ToRole_AbsenceTypeTimeAccount"/>
+				</AssociationSet>
+				<AssociationSet Name="WorkScheduleWorkScheduleLegend_AssocSet" Association="LEAVEREQUEST.WorkScheduleWorkScheduleLegend"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="2">
+					<End EntitySet="WorkScheduleCollection" Role="FromRole_WorkScheduleWorkScheduleLegend"/>
+					<End EntitySet="WorkScheduleLegendCollection" Role="ToRole_WorkScheduleWorkScheduleLegend"/>
+				</AssociationSet>
+				<AssociationSet Name="AbsenceTypeAdditionalField_AssocSet" Association="LEAVEREQUEST.AbsenceTypeAdditionalField" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="2">
+					<End EntitySet="AbsenceTypeCollection" Role="FromRole_AbsenceTypeAdditionalField"/>
+					<End EntitySet="AdditionalFieldCollection" Role="ToRole_AbsenceTypeAdditionalField"/>
+				</AssociationSet>
+				<AssociationSet Name="AdditionalFieldPickList_AssocSet" Association="LEAVEREQUEST.AdditionalFieldPickList" sap:creatable="false"
+					sap:updatable="false" sap:deletable="false" sap:content-version="2">
+					<End EntitySet="AdditionalFieldCollection" Role="FromRole_AdditionalFieldPickList"/>
+					<End EntitySet="PickListCollection" Role="ToRole_AdditionalFieldPickList"/>
+				</AssociationSet>
+			</EntityContainer>
+			<atom:link rel="self"
+				href="https://rde-fiori.dispatcher.neo.ondemand.com/destinations/GM4_https/sap/opu/odata/gbhcm/LEAVEREQUEST;v=0002/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/>
+			<atom:link rel="latest-version"
+				href="https://rde-fiori.dispatcher.neo.ondemand.com/destinations/GM4_https/sap/opu/odata/gbhcm/LEAVEREQUEST;v=2/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
